@@ -14,6 +14,7 @@
   <properties>
     <jwat.version>1.0.3</jwat.version>
     <epubcheck.version>4.2.1</epubcheck.version>
+    <javagnutar.version>1.1.4</javagnutar.version>
   </properties>
 
   <build>
@@ -81,6 +82,12 @@
       <groupId>org.w3c</groupId>
       <artifactId>epubcheck</artifactId>
       <version>${epubcheck.version}</version>
+    </dependency>
+    <!-- For Tar module -->
+    <dependency>
+      <groupId>com.ice</groupId>
+      <artifactId>ptc-javagnutar-${javagnutar.version}</artifactId>
+      <version>${javagnutar.version}</version>
     </dependency>
   </dependencies>
 </project>
