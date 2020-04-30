@@ -40,6 +40,9 @@ public class DocCatTests {
 	private static final String catTypeKyValPairMissPath = docCatResourcePath
 			+ "T02-01_007_document-catalog-type-key-value-pair-missing.pdf";
 
+	private static final String invalidInternalReferencesPath = pdfResourcePath
+			+ "invalidInternalReferences.pdf";
+
 	private PdfModule module;
 
 	@Before
@@ -136,4 +139,14 @@ public class DocCatTests {
 				RepInfo.FALSE, RepInfo.FALSE,
 				MessageConstants.PDF_HUL_140.getMessage());
 	}
+
+	/**
+	 * Test method for {@link PdfModule}.
+	 */
+	@Test
+	public final void testRepetetiveInvalidReference() throws URISyntaxException {
+		TestUtils.testValidateResource(this.module, invalidInternalReferencesPath,
+				RepInfo.TRUE, RepInfo.FALSE, null);
+	}
+
 }
