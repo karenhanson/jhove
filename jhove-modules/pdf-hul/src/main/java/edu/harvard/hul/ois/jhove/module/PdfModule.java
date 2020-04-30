@@ -3368,6 +3368,20 @@ public class PdfModule extends ModuleBase {
 							destPg));
 				}
 			}
+		} catch (PdfInvalidException pie) {
+
+			String msg = pie.getClass().getName();
+			String msg1 = pie.getMessage();
+			if (msg1 != null) {
+				msg = msg + ": " + msg1;
+			}
+			JhoveMessage message = JhoveMessages.getMessageInstance(
+					MessageConstants.PDF_HUL_149.getId(), msg);
+			propList.add(
+					new Property(propName, PropertyType.STRING, PROP_VAL_NULL));
+			info.setMessage(new ErrorMessage(message, // PDF-HUL-149
+					_parser.getOffset()));
+			info.setValid(false);
 		} catch (Exception e) {
 
 			String msg = e.getClass().getName();
